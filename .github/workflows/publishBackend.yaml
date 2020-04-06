@@ -12,6 +12,9 @@ jobs:
 
     steps:
     - uses: actions/setup-java@v1
+      with:
+        java-version: '8' # The JDK version to make available on the path.
+        java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
     - uses: actions/checkout@v2 
 
     - name: Install dependencies、build and generate jar
