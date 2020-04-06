@@ -24,7 +24,7 @@ jobs:
 
     - name: build docker image
       run: |
-          docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
+          docker build . --file dockerfile --tag ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
           docker login -u 972931182 -p ${{secrets.dockerPassword}} ccr.ccs.tencentyun.com
           docker push ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
 
