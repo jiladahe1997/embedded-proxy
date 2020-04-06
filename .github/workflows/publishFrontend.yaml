@@ -1,0 +1,24 @@
+name: publishFrontend.yaml
+
+on: 
+  pull_request:
+    braches:
+      -master
+
+jobs: 
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/setup-node@v1
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: build
+      run: npm run build
+
+    - name: upload
+      run: node publishStaticFile ${{secrets.SecretId}} ${{secrets.SecretKey}}
+
+  
