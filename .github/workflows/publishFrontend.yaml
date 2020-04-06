@@ -3,7 +3,7 @@ name: publishFrontend.yaml
 on: 
   pull_request:
     branches:
-      -master
+      - master
 
 jobs: 
   upload:
