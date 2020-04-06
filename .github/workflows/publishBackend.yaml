@@ -7,7 +7,7 @@ on:
       - master
 
 jobs: 
-  build docker images:
+  build_docker_images:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
           docker login -u 972931182 -p ${{secrets.dockerPassword}} ccr.ccs.tencentyun.com
           docker push ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
 
-  redeploy Tencent TKE cluster service:
+  redeploy_Tencent_TKE_cluster_service:
     runs-on: ubuntu-latest
 
     steps:
