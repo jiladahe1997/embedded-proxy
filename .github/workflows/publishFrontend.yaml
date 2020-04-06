@@ -2,7 +2,7 @@ name: publishFrontend.yaml
 
 on: 
   pull_request:
-    braches:
+    branches:
       -master
 
 jobs: 
