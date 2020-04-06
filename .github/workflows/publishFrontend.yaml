@@ -2,6 +2,7 @@ name: publishFrontend.yaml
 
 on: 
   pull_request:
+    types: [closed]
     branches:
       - master
 
