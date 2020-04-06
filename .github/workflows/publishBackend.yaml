@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v2 
 
     - name: Install dependencies、build and generate jar
-      run: |
+      run: | 
           chmod +x ./mvnw
           ./mvnw clean package
 
