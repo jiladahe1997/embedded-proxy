@@ -18,7 +18,9 @@ jobs:
     - uses: actions/checkout@v2 
 
     - name: Install dependencies、build and generate jar
-      run: ./mvnw clean package
+      run: |
+          chmod +x ./mvnw
+          ./mvnw clean package
 
     - name: build docker image
       run: |
@@ -27,6 +29,7 @@ jobs:
           docker push ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
 
   redeploy_Tencent_TKE_cluster_service:
+    needs: build_docker_images
     runs-on: ubuntu-latest
 
     steps:
