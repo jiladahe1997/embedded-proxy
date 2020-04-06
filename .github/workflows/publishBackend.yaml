@@ -1,0 +1,36 @@
+name: publishBackend.yaml
+
+on: 
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs: 
+  build docker images:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/setup-java@v1
+    - uses: actions/checkout@v2 
+
+    - name: Install dependencies、build and generate jar
+      run: ./mvnw clean package
+
+    - name: build docker image
+      run: |
+          docker build . --file Dockerfile --tag ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
+          docker login -u 972931182 -p ${{secrets.dockerPassword}} ccr.ccs.tencentyun.com
+          docker push ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
+
+  redeploy Tencent TKE cluster service:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/setup-node@v1
+    - uses: actions/checkout@v2 
+
+    - name: RedeployClusterService
+      run: node publishServer ${{secrets.SecretId}} ${{secrets.SecretKey}}
+
+  
