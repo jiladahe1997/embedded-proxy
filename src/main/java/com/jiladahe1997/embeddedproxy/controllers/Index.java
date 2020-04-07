@@ -28,7 +28,7 @@ public class Index {
         return EntityUtils.toString(httpEntity, "utf8");
     }
 
-    @RequestMapping("/index/config")
+    @RequestMapping("/api/index/config")
     public CommonReturn config() throws JsonProcessingException {
         ConfigList configList =  new ObjectMapper().readerFor(ConfigList.class).readValue(acmService.getConfig());
         return new CommonReturn().success(configList);
