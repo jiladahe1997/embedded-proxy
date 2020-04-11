@@ -64,6 +64,9 @@ export default {
   overflow: hidden;
   color: #303133;
   transition: .3s;
+  &:hover{
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+  }
 }
 .cardContainer{
   cursor: pointer;
@@ -74,8 +77,9 @@ export default {
   margin-right: 10px;
   line-height: 100px;
   display: inline-block;
+  text-align: center;
   img {
-    width: 100px;
+    width: 75px;
     vertical-align: middle;
   }
 }

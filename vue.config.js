@@ -1,5 +1,6 @@
 const config = require('config')
 
+console.log(config.Client.webpack.publicPat)
 module.exports = {
   pages: {
     index: {
@@ -10,9 +11,9 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'http://localhost:8081/',
-        pathRewrite: (path, req)=> {
-          return path.replace('/api','')
-        },
+        //pathRewrite: (path, req)=> {
+          //return path.replace('/api','')
+        //},
         onProxyReq: (proxyReq, req, res)=> {
           console.log(`代理${req.host}${req.path}到${proxyReq.getHeader('host')}${proxyReq.path}`)
         }
