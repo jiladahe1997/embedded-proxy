@@ -4,6 +4,8 @@ const axios = require("axios")
 
 const SecretId = process.argv[2]
 const SecretKey = process.argv[3]
+const serviceName = process.argv[4] === 'test' ? 'embeddedproxy-website-test' : 'embeddedproxy-website'
+
 const baseParams = {
   Action: "RedeployClusterService",
   Timestamp: dayjs().unix(),
@@ -11,7 +13,7 @@ const baseParams = {
   Region: "ap-guangzhou",
   SecretId,
   clusterId: "cls-5hx5fiwm",
-  serviceName: "embeddedproxy-website"
+  serviceName
 }
 
 function signatureCalc(params) {
