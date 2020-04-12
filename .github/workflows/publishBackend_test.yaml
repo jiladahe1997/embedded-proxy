@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - master
+      - test
 
 jobs: 
   build_docker_images:
@@ -26,7 +26,7 @@ jobs:
       run: |
           docker build . --file dockerfile --tag ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
           docker login -u 972931182 -p ${{secrets.dockerPassword}} ccr.ccs.tencentyun.com
-          docker push ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:latest
+          docker push ccr.ccs.tencentyun.com/jiladahe1997/embeddproxy:test
 
   redeploy_Tencent_TKE_cluster_service:
     needs: build_docker_images
@@ -40,6 +40,6 @@ jobs:
       run: npm install
 
     - name: RedeployClusterService
-      run: node .github\workflows\publishServer.js ${{secrets.SecretId}} ${{secrets.SecretKey}}
+      run: node .github\workflows\publishServer.js ${{secrets.SecretId}} ${{secrets.SecretKey}} test
  
   
