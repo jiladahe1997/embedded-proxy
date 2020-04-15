@@ -12,6 +12,7 @@ public class EmbeddedproxyApplication {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		SpringApplication.run(EmbeddedproxyApplication.class, args);
+		new JobKeil().KeilMain("0");
 	}
 
 }
