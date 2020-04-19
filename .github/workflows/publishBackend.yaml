@@ -4,7 +4,8 @@ on:
   pull_request:
     types: [closed]
     branches:
-      - master
+      # - master  暂时使用腾讯云的构建
+      - none
 
 jobs: 
   build_docker_images:
