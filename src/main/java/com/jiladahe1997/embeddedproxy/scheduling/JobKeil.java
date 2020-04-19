@@ -50,8 +50,7 @@ public class JobKeil {
            int readByte;
            byte[] readBuffer = new byte[1024000];
            int readCount = 0;
-           //while((readByte = stream.read(readBuffer)) !=- 1) {
-           while((readByte = stream.read(readBuffer)) !=- 1 && readCount < 3000) {
+           while((readByte = stream.read(readBuffer)) !=- 1) {
                readCount++;
                System.out.println("downloading,count:"+ readCount);
                fileOutputStream.write(readBuffer,0,readByte);
@@ -90,7 +89,7 @@ public class JobKeil {
 
         ArrayList<PartETag> partETags = new ArrayList<PartETag>();
         int readByte;
-        byte[] readBuffer = new byte[1024000];
+        byte[] readBuffer = new byte[10240000];
         int partNumber=0;
         CountDownLatch countDownLatch;
         while((readByte = fileInputStream.read(readBuffer)) !=- 1) {
@@ -99,7 +98,7 @@ public class JobKeil {
             int finalPartNumber = partNumber;
             int finalReadByte = readByte;
             ByteArrayInputStream partStream = new ByteArrayInputStream(onceReadyBytes);
-            UploadPartRequest uploadPartRequest = new UploadPartRequest().withBucketName("embeddedproxy-1252616609").withKey("mirrorFile/MDK529.EXE").withUploadId(uploadId).withPartNumber(finalPartNumber)
+            UploadPartRequest uploadPartRequest = new UploadPartRequest().withBucketName("embeddedproxy-2-1252616609").withKey("mirrorFile/MDK529.EXE").withUploadId(uploadId).withPartNumber(finalPartNumber)
                     .withInputStream(partStream).withPartSize(finalReadByte);
             UploadPartResult uploadPartResult = cosClient.uploadPart(uploadPartRequest);
             System.out.println("分块上传完成, etag:"+uploadPartResult.getETag());
@@ -111,7 +110,7 @@ public class JobKeil {
         }
         //executorService.shutdown();
         //executorService.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);
-        CompleteMultipartUploadResult result = cosClient.completeMultipartUpload(new CompleteMultipartUploadRequest("embeddedproxy-1252616609", "mirrorFile/MDK529.EXE",uploadId,partETags));
+        CompleteMultipartUploadResult result = cosClient.completeMultipartUpload(new CompleteMultipartUploadRequest("embeddedproxy-2-1252616609", "mirrorFile/MDK529.EXE",uploadId,partETags));
         System.out.println("上传完成");
         return ReturnT.SUCCESS;
     }
