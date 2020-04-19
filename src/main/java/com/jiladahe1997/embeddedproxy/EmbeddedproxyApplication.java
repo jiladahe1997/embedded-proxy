@@ -7,11 +7,12 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 import java.io.IOException;
 
-@SpringBootApplication(exclude= DataSourceAutoConfiguration.class)
+@SpringBootApplication
 public class EmbeddedproxyApplication {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		SpringApplication.run(EmbeddedproxyApplication.class, args);
+		//new JobKeil().KeilMain("0");
 	}
 
 }
