@@ -1,4 +1,4 @@
-FROM openjdk:11.0-jre
+FROM openjdk:11.0-jdk
 
 WORKDIR /usr/src/app
 
