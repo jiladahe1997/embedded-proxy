@@ -27,7 +27,7 @@ public class ScheduleResult {
         handleName.forEach(e->{
             XxlJobLog lastJobLog = xxlJobLogMapper.selectOne(c->c
                     .where(XxlJobLogDynamicSqlSupport.executorHandler, SqlBuilder.isEqualTo(e))
-                    .orderBy(XxlJobLogDynamicSqlSupport.triggerTime)
+                    .orderBy(XxlJobLogDynamicSqlSupport.triggerTime.descending())
                     .limit(1)).get();
             ScheduleResultVO scheduleResultVO = new ScheduleResultVO();
             scheduleResultVO.setHandleName(lastJobLog.getExecutorHandler());
