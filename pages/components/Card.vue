@@ -14,7 +14,7 @@
         </p>
         <p>
           {{`同步结果:`}}<span :style="{color: lastResult === '暂无数据'? 'grey' : 
-            lastResult ? 'red':'green'}">{{lastResult}}</span>
+            lastResult === '失败' ? 'red':'green'}">{{lastResult}}</span>
         </p>
       </div>
     </div>

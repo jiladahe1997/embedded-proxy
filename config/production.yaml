@@ -1,6 +1,3 @@
-pages:
-  baseURL: "/"
-
 Client:
   webpack:
-    publicPath: "https://embeddedproxy-1252616609.cos.ap-chengdu.myqcloud.com/static/"
+    publicPath: "//static.embeddedproxy.cn/static/"

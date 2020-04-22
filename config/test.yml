@@ -1,5 +1,5 @@
 Vue_Cli:
-  backend: "http://localhost:8081/"
+  backend: "http://test.embeddedproxy.cn/"
 
 Client:
   webpack:
