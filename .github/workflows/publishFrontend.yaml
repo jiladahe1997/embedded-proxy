@@ -21,6 +21,6 @@ jobs:
       run: npm run build
 
     - name: upload
-      run: node publishStaticFile ${{secrets.SecretId}} ${{secrets.SecretKey}}
+      run: node .github/workflows/publishStaticFile ${{secrets.SecretId}} ${{secrets.SecretKey}}
 
   
