@@ -1,0 +1,6 @@
+Vue_Cli:
+  backend: "http://localhost:8081/"
+
+Client:
+  webpack:
+    publicPath: "/"

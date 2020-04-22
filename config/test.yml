@@ -1,0 +1,6 @@
+Vue_Cli:
+  backend: "http://test.embeddedproxy.cn/"
+
+Client:
+  webpack:
+    publicPath: "/"

@@ -7,4 +7,6 @@ public class Config {
     String name;
     String img;
     String description;
+    String handleName;
+    String instructionsFileName;
 }

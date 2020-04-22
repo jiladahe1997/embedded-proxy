@@ -65,6 +65,26 @@
 			<artifactId>fluent-hc</artifactId>
 			<version>4.5.11</version>
 		</dependency>
+		<dependency>
+			<groupId>com.xuxueli</groupId>
+			<artifactId>xxl-job-core</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.qcloud</groupId>
+			<artifactId>cos_api</artifactId>
+			<version>5.6.18</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.dynamic-sql</groupId>
+			<artifactId>mybatis-dynamic-sql</artifactId>
+			<version>1.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -72,6 +92,18 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>8.0.18</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

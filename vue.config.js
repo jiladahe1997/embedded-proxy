@@ -1,16 +1,17 @@
 const config = require('config')
+const path = require('path')
 
-console.log(config.Client.webpack.publicPat)
 module.exports = {
   pages: {
     index: {
       entry: './pages/main.js'
     }
   },
+  lintOnSave: 'warning',
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8081/',
+        target: config.Vue_Cli.backend,
         //pathRewrite: (path, req)=> {
           //return path.replace('/api','')
         //},
@@ -20,5 +21,18 @@ module.exports = {
       }
     }
   },
-  publicPath: config.Client.webpack.publicPath
+  publicPath: config.Client.webpack.publicPath,
+  configureWebpack:{
+    resolve: {
+      alias: {
+        '@docs': path.resolve('./pages/MDdocs'),
+      }
+    },
+    module: {
+      rules: [{
+          test: /\.md$/,
+          loader: 'raw-loader'
+      }]
+    }
+  }
 }

@@ -8,6 +8,15 @@
         <p class="title">{{data.name}}</p>
         <p class="brief">{{data.description}}</p>
       </div>
+      <div class="syncResult">
+        <p>
+          {{`上次同步时间:${lastUpdateTime} `}}
+        </p>
+        <p>
+          {{`同步结果:`}}<span :style="{color: lastResult === '暂无数据'? 'grey' : 
+            lastResult === '失败' ? 'red':'green'}">{{lastResult}}</span>
+        </p>
+      </div>
     </div>
     <Dialog
       title="使用方法"
@@ -15,7 +24,7 @@
     >
       <template slot="default">
         <h2>{{`${data.name}镜像库使用方法介绍`}}</h2>
-        <div>{{data.instructions || '暂无使用方法，待补充'}}</div>
+        <div v-html="instructions || '暂无使用方法，待补充'"></div>
       </template>
     </Dialog>
   </div>
@@ -23,6 +32,10 @@
 
 <script>
 import {  Dialog  } from "element-ui";
+import Qs from 'qs'
+import dayjs from 'dayjs'
+import marked from 'marked'
+
 export default {
   components: {
     Dialog
@@ -34,15 +47,39 @@ export default {
         return {
           name: '',
           img: '',
-          description: ''
+          description: '',
+          handleName: '',
+          instructionsFileName: ''
         }
       }
     }
   },
   data() {
     return {
-      dialogVisible: false
+      dialogVisible: false,
+      lastUpdateTime: '暂无数据',
+      lastResult:'暂无数据',
+      instructions: ''
     }
+  },
+  async created() {
+    if(this.data.handleName) {
+      const res = await this.$axios.get('/api/schedule/result',{
+        params: {
+          handleName: [this.data.handleName]
+        },
+        paramsSerializer: function(params) {
+          return Qs.stringify(params, {arrayFormat: 'repeat'})
+        },
+      })
+      this.lastUpdateTime = dayjs(res.data.data[0].triggerTime).format("YYYY-MM-DD HH:mm:ss")
+      this.lastResult = res.data.data[0].success ? "成功" : "失败"
+    }
+
+    if (!this.data.instructionsFileName) return ''
+      import(`@docs/${this.data.instructionsFileName}.md`).then((module)=>{
+        this.instructions = marked(module.default)
+    })
   },
   methods:{
     clickHandle() {
@@ -93,5 +130,9 @@ export default {
   .brief {
     font-size: 12px;
   }
+}
+.syncResult {
+  text-align: right;
+  font-size: 10px;
 }
 </style>

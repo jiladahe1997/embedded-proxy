@@ -1,0 +1,3 @@
+Client:
+  webpack:
+    publicPath: "//static.embeddedproxy.cn/static/"

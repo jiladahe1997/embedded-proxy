@@ -1,6 +1,0 @@
-pages:
-  baseURL: 'localhost:8001/'
-
-Client:
-  webpack:
-    publicPath: "/"

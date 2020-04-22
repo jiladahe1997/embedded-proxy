@@ -1,0 +1,17 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="dsql" targetRuntime="MyBatis3DynamicSql">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://cdb-jlshk32k.cd.tencentcdb.com:10139/test_embeddedproxy"
+                        userId="root"
+                        password="Freedom1997"/>
+
+        <javaModelGenerator targetPackage="com.jiladahe1997.embeddedproxy.example.model" targetProject="src/main/java"/>
+
+        <javaClientGenerator targetPackage="com.jiladahe1997.embeddedproxy.example.mapper" targetProject="src/main/java"/>
+
+        <table tableName="xxl_job_log" />
+    </context>
+</generatorConfiguration>
