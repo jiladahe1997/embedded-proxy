@@ -11,7 +11,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8081/',
+        target: config.Vue_Cli.backend,
         //pathRewrite: (path, req)=> {
           //return path.replace('/api','')
         //},
