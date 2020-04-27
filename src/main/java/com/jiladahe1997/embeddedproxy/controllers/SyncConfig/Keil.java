@@ -1,10 +1,12 @@
-package com.jiladahe1997.embeddedproxy.controllers;
+package com.jiladahe1997.embeddedproxy.controllers.SyncConfig;
 
 import com.alibaba.edas.acm.exception.ConfigException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jiladahe1997.embeddedproxy.models.CommonReturn;
+import com.jiladahe1997.embeddedproxy.models.SyncConfig.KeilVo;
 import com.jiladahe1997.embeddedproxy.models.index.ConfigList;
+import com.jiladahe1997.embeddedproxy.models.scheduling.KeilSyncConfig;
 import com.jiladahe1997.embeddedproxy.scheduling.JobKeil;
 import com.jiladahe1997.embeddedproxy.services.AcmService;
 import org.apache.http.HttpEntity;
@@ -17,22 +19,27 @@ import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBo
 
 import java.io.IOException;
 import java.io.PipedOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @RestController
-public class Index {
+public class Keil {
 
     @Autowired
     AcmService acmService;
 
-    @RequestMapping("/")
-    public String index() throws IOException {
-        HttpEntity httpEntity = Request.Get("https://embeddedproxy-1252616609.cos.ap-chengdu.myqcloud.com/static/index.html").execute().returnResponse().getEntity();
-        return EntityUtils.toString(httpEntity, "utf8");
-    }
 
-    @RequestMapping("/api/index/config")
+    @RequestMapping("/api/SyncConfig/keil")
     public CommonReturn config() throws IOException {
-        ConfigList configList =  new ObjectMapper().readerFor(ConfigList.class).readValue(acmService.getIndexCard());
-        return new CommonReturn().success(configList);
+        KeilSyncConfig keilSyncConfigs[] = new ObjectMapper().readerFor(KeilSyncConfig[].class).readValue(acmService.getKeilSyncData());
+        List<KeilSyncConfig> configList = Arrays.asList(keilSyncConfigs);
+        List<KeilVo> ret = new ArrayList<KeilVo>();
+        configList.forEach(c->{
+            KeilVo keilVo = new KeilVo();
+            keilVo.setFileName(c.getFileName());
+            ret.add(keilVo);
+        });
+        return new CommonReturn().success(ret);
     }
 }

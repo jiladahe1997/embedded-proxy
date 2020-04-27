@@ -21,6 +21,7 @@
     <Dialog
       title="使用方法"
       :visible.sync="dialogVisible"
+      @open="openHandle"
     >
       <template slot="default">
         <h2>{{`${data.name}镜像库使用方法介绍`}}</h2>
@@ -36,6 +37,7 @@ import Qs from 'qs'
 import dayjs from 'dayjs'
 import marked from 'marked'
 
+const COMMON_URL = "https://download.embeddedproxy.cn/mirrorFile/"
 export default {
   components: {
     Dialog
@@ -77,13 +79,35 @@ export default {
     }
 
     if (!this.data.instructionsFileName) return ''
-      import(`@docs/${this.data.instructionsFileName}.md`).then((module)=>{
-        this.instructions = marked(module.default)
+    import(`@docs/${this.data.instructionsFileName}.md`).then(async (module)=>{
+      this.instructions = marked(module.default)
+
     })
+
   },
   methods:{
     clickHandle() {
       this.dialogVisible = true;
+    },
+    async openHandle() {
+      const downloadUrl = await this.$axios.get('/api/SyncConfig/keil')
+      this.$nextTick(()=>{
+        window.document.querySelector("#Keil-installer").href = COMMON_URL + downloadUrl.data.data.find(v=>v.fileName==="MDK529.EXE").fileName
+        window.document.querySelector("#Keil-installer").target  = "__blank"
+        window.document.querySelector("#Keil-installer").innerHTML  = downloadUrl.data.data.find(v=>v.fileName==="MDK529.EXE").fileName
+        const packListNode =  window.document.querySelector("#Keil-packs")
+        const packList = downloadUrl.data.data.filter(v=>v.fileName!=="MDK529.EXE")
+        packListNode.innerHTML = ''
+        packList.forEach(v=>{
+          const li = window.document.createElement('li')
+          const a = window.document.createElement('a')
+          a.innerHTML=v.fileName
+          a.target = "__blank"
+          a.href = COMMON_URL+v.fileName
+          li.append(a)
+          packListNode.append(li)
+        })
+      })
     }
   }
 }
