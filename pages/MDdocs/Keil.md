@@ -8,7 +8,7 @@ Keil于2005年10月被ARM收购，其下的集成开发环境：Keil MDK也成�
 ### 使用方法
 #### 1.提供Keil安装包的镜像，点击此处进行下载：
 
-下载链接
+<a href="" id="Keil-installer">下载链接</a>
 
 #### 2.提供Keil官方Pack Installer的相关包镜像,使用方法：
 
@@ -20,11 +20,8 @@ Keil于2005年10月被ARM收购，其下的集成开发环境：Keil MDK也成�
 
 相关包下载链接如下：
 
-STM32F0
 
-STM32F1
+<ul id="Keil-packs">
 
-STM32F3
-
-STM32F4
+</ul>
 
