@@ -23,17 +23,19 @@ public class AcmService {
         properties.put("accessKey", "LTAI4Fm1Fxp4q9wZECJjcdyp");
         properties.put("secretKey", "RVIGutr8cgOkbvuTsGiXZn3kk28a2v");
 
+        Boolean isLocal = System.getenv("JAVA_ENV") != null && (System.getenv("JAVA_ENV").equals("local"));
+
         ConfigService.init(properties);
-        indexCard = ConfigService.getConfig("index-card", System.getenv("JAVA_ENV").equals("local")  ? "test-embeddedproxy":"embeddedproxy", 6000);
-        KeilSyncData = ConfigService.getConfig("Keil-sync-data", System.getenv("JAVA_ENV").equals("local") ? "test-embeddedproxy":"embeddedproxy", 6000);
+        indexCard = ConfigService.getConfig("index-card", isLocal  ? "test-embeddedproxy":"embeddedproxy", 6000);
+        KeilSyncData = ConfigService.getConfig("Keil-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", 6000);
 
         // 初始化的时候，给配置添加监听，配置变更会回调通知
-        ConfigService.addListener("index-card", System.getenv("JAVA_ENV").equals("local")  ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
+        ConfigService.addListener("index-card", isLocal  ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
             public void receiveConfigInfo(String configInfo) {
                 indexCard = configInfo;
             }
         });
-        ConfigService.addListener("Keil-sync-data", System.getenv("JAVA_ENV").equals("local") ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
+        ConfigService.addListener("Keil-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
             public void receiveConfigInfo(String configInfo) {
                 KeilSyncData = configInfo;
             }
