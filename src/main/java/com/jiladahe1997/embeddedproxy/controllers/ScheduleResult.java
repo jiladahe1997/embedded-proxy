@@ -27,12 +27,12 @@ public class ScheduleResult {
         handleName.forEach(e->{
             XxlJobLog lastJobLog = xxlJobLogMapper.selectOne(c->c
                     .where(XxlJobLogDynamicSqlSupport.executorHandler, SqlBuilder.isEqualTo(e))
-                    .orderBy(XxlJobLogDynamicSqlSupport.triggerTime.descending())
+                    .orderBy(XxlJobLogDynamicSqlSupport.handleTime.descending())
                     .limit(1)).get();
             ScheduleResultVO scheduleResultVO = new ScheduleResultVO();
             scheduleResultVO.setHandleName(lastJobLog.getExecutorHandler());
             scheduleResultVO.setSuccess(lastJobLog.getTriggerCode() == 200);
-            scheduleResultVO.setTriggerTime(lastJobLog.getTriggerTime());
+            scheduleResultVO.setTriggerTime(lastJobLog.getHandleTime());
             ret.add(scheduleResultVO);
         });
 

@@ -20,11 +20,8 @@ Keil于2005年10月被ARM收购，其下的集成开发环境：Keil MDK也成�
 
 相关包下载链接如下：
 
-STM32F0
 
-STM32F1
+<ul id="Keil-packs">
 
-STM32F3
-
-STM32F4
+</ul>
 
