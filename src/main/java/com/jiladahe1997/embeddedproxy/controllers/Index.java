@@ -30,6 +30,12 @@ public class Index {
         return EntityUtils.toString(httpEntity, "utf8");
     }
 
+    @RequestMapping("/admin")
+    public String admin() throws IOException {
+        HttpEntity httpEntity = Request.Get("https://embeddedproxy-1252616609.cos.ap-chengdu.myqcloud.com/static/admin.html").execute().returnResponse().getEntity();
+        return EntityUtils.toString(httpEntity, "utf8");
+    }
+
     @RequestMapping("/api/index/config")
     public CommonReturn config() throws IOException {
         ConfigList configList =  new ObjectMapper().readerFor(ConfigList.class).readValue(acmService.getIndexCard());
