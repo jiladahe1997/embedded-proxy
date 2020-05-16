@@ -4,7 +4,10 @@ const path = require('path')
 module.exports = {
   pages: {
     index: {
-      entry: './pages/main.js'
+      entry: './pages/index/main.js'
+    },
+    admin:{
+      entry: './pages/admin/main.js'
     }
   },
   lintOnSave: 'warning',
@@ -25,7 +28,7 @@ module.exports = {
   configureWebpack:{
     resolve: {
       alias: {
-        '@docs': path.resolve('./pages/MDdocs'),
+        '@docs': path.resolve('./pages/index/MDdocs'),
       }
     },
     module: {
