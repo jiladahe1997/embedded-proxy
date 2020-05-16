@@ -81,7 +81,6 @@ export default {
     if (!this.data.instructionsFileName) return ''
     import(`@docs/${this.data.instructionsFileName}.md`).then(async (module)=>{
       this.instructions = marked(module.default)
-
     })
 
   },
