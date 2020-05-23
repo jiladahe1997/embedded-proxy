@@ -89,13 +89,14 @@ export default {
       this.dialogVisible = true;
     },
     async openHandle() {
-      const downloadUrl = await this.$axios.get('/api/SyncConfig/keil')
+      const downloadUrl = await this.$axios.get('/api/SyncConfig', {
+        params: {
+          name: this.data.name
+        }
+      })
       this.$nextTick(()=>{
-        window.document.querySelector("#Keil-installer").href = COMMON_URL + downloadUrl.data.data.find(v=>v.fileName==="MDK529.EXE").fileName
-        window.document.querySelector("#Keil-installer").target  = "__blank"
-        window.document.querySelector("#Keil-installer").innerHTML  = downloadUrl.data.data.find(v=>v.fileName==="MDK529.EXE").fileName
-        const packListNode =  window.document.querySelector("#Keil-packs")
-        const packList = downloadUrl.data.data.filter(v=>v.fileName!=="MDK529.EXE")
+        const packListNode =  window.document.querySelector("#packs-list")
+        const packList = downloadUrl.data.data
         packListNode.innerHTML = ''
         packList.forEach(v=>{
           const li = window.document.createElement('li')

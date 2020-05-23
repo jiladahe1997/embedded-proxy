@@ -6,9 +6,8 @@ Keil于2005年10月被ARM收购，其下的集成开发环境：Keil MDK也成�
 官网：https://www2.keil.com/
 
 ### 使用方法
-#### 1.提供Keil安装包的镜像，点击此处进行下载：
+#### 1.提供Keil安装包的镜像
 
-<a href="" id="Keil-installer">下载链接</a>
 
 #### 2.提供Keil官方Pack Installer的相关包镜像,使用方法：
 
@@ -21,7 +20,7 @@ Keil于2005年10月被ARM收购，其下的集成开发环境：Keil MDK也成�
 相关包下载链接如下：
 
 
-<ul id="Keil-packs">
+<ul id="packs-list">
 
 </ul>
 
