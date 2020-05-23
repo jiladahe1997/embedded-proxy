@@ -6,8 +6,6 @@ freescale：飞思卡尔 公司（前身 摩托罗拉半导体）
 
 ### 相关软件下载：
 
-MCUXpresso Config Tools：TODO
+<ul id="packs-list">
 
-MCUXpresso IDE：TODO
-
-MCUXpresso SDK：TODO
+</ul>
