@@ -6,6 +6,12 @@ freescale：飞思卡尔 公司（前身 摩托罗拉半导体）
 
 ### 相关软件下载：
 
+MCUXpresso SDK： 官方地址：https://mcuxpresso.nxp.com/en/welcome
+S32DS IDE： 官方地址：https://www.nxp.com/design/software/development-software/s32-design-studio-ide/s32-design-studio-for-arm:S32DS-ARM
+
+MCUXpresso Config Tool： 官方地址：https://www.nxp.com/design/software/development-software/mcuxpresso-software-and-tools/mcuxpresso-config-tools-pins-clocks-peripherals:MCUXpresso-Config-Tools?tab=Design_Tools_Tab
+
+#### 本站提供的镜像地址：
 <ul id="packs-list">
 
 </ul>
