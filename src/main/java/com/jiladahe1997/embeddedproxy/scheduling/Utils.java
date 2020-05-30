@@ -10,13 +10,18 @@ import com.xxl.job.core.biz.model.ReturnT;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.fluent.Request;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 
 import java.io.*;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
@@ -94,6 +99,16 @@ public class Utils {
         }
         CompleteMultipartUploadResult result = cosClient.completeMultipartUpload(new CompleteMultipartUploadRequest("embeddedproxy-2-1252616609", "mirrorFile/"+fileName,uploadId,partETags));
         System.out.println("上传完成");
-        return;
     }
+
+    /* TODO:上传文件后，需要刷新一下CDN，目前观察到CDN好像10分钟左右会自动刷新，观察ing */
+//    public static void refreshCDN(String filename) throws URISyntaxException {
+//        URIBuilder uriBuilder = new URIBuilder("https://cdn.tencentcloudapi.com");
+//        uriBuilder.setParameters(Arrays.asList(
+//                new BasicNameValuePair("Action","PurgeUrlsCache"),
+//                new BasicNameValuePair("Version", "2018-06-06"),
+//                new BasicNameValuePair("Urls.0","https://")
+//        ))
+//        HttpEntity httpEntity = Request.Get("https://embeddedproxy-1252616609.cos.ap-chengdu.myqcloud.com/static/index.html").execute().returnResponse().getEntity();
+//    }
 }
