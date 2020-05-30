@@ -17,6 +17,8 @@ public class AcmService {
     public String KeilSyncData;
     @Getter
     public String NXPSyncData;
+    @Getter
+    public String ARMSyncData;
 
     public AcmService() throws ConfigException {
         Properties properties = new Properties();
@@ -31,6 +33,7 @@ public class AcmService {
         indexCard = ConfigService.getConfig("index-card", isLocal  ? "test-embeddedproxy":"embeddedproxy", 6000);
         KeilSyncData = ConfigService.getConfig("Keil-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", 6000);
         NXPSyncData = ConfigService.getConfig("NXP-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", 6000);
+        ARMSyncData = ConfigService.getConfig("ARM-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", 6000);
 
         // 初始化的时候，给配置添加监听，配置变更会回调通知
         ConfigService.addListener("index-card", isLocal  ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
@@ -44,6 +47,11 @@ public class AcmService {
             }
         });
         ConfigService.addListener("NXP-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
+            public void receiveConfigInfo(String configInfo) {
+                NXPSyncData = configInfo;
+            }
+        });
+        ConfigService.addListener("ARM-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
             public void receiveConfigInfo(String configInfo) {
                 NXPSyncData = configInfo;
             }
