@@ -53,7 +53,7 @@ public class AcmService {
         });
         ConfigService.addListener("ARM-sync-data", isLocal ? "test-embeddedproxy":"embeddedproxy", new ConfigChangeListener() {
             public void receiveConfigInfo(String configInfo) {
-                NXPSyncData = configInfo;
+                ARMSyncData = configInfo;
             }
         });
     }

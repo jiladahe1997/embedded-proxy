@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div ref="container" class="container">
     <div class="cardContainer" @click="clickHandle">
       <div class="imgContainer">
         <img :src="data.img" alt="">
@@ -96,7 +96,7 @@ export default {
           }
         })
         this.$nextTick(()=>{
-          const packListNode =  window.document.querySelector("#packs-list")
+          const packListNode =  this.$refs.container.querySelector("#packs-list")
           const packList = downloadUrl.data.data
           packListNode.innerHTML = ''
           packList.forEach(v=>{
