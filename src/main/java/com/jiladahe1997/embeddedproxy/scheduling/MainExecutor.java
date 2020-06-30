@@ -29,6 +29,9 @@ public class MainExecutor {
     private int logRetentionDays;
 
 
+    public String show()
+    {return "!~@1!@@!!@@!@!#!@#!@";}
+
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
