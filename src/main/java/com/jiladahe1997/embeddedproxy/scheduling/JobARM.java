@@ -27,7 +27,7 @@ public class JobARM {
                 Utils.downloadFileFromUrl(c.url,c.fileName);
                 Utils.uploadFile(c.fileName);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         });
         return ReturnT.SUCCESS;
