@@ -12,6 +12,10 @@
 
         <javaClientGenerator targetPackage="com.jiladahe1997.embeddedproxy.example.mapper" targetProject="src/main/java"/>
 
-        <table tableName="xxl_job_log" />
+
+
+        <table tableName="announcement" catalog="test_embeddedproxy" >
+
+        </table  >
     </context>
 </generatorConfiguration>
