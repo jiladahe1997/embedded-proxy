@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div ref="container" class="container">
     <div class="cardContainer" @click="clickHandle">
       <div class="imgContainer">
         <img :src="data.img" alt="">
@@ -89,24 +89,29 @@ export default {
       this.dialogVisible = true;
     },
     async openHandle() {
-      const downloadUrl = await this.$axios.get('/api/SyncConfig/keil')
-      this.$nextTick(()=>{
-        window.document.querySelector("#Keil-installer").href = COMMON_URL + downloadUrl.data.data.find(v=>v.fileName==="MDK529.EXE").fileName
-        window.document.querySelector("#Keil-installer").target  = "__blank"
-        window.document.querySelector("#Keil-installer").innerHTML  = downloadUrl.data.data.find(v=>v.fileName==="MDK529.EXE").fileName
-        const packListNode =  window.document.querySelector("#Keil-packs")
-        const packList = downloadUrl.data.data.filter(v=>v.fileName!=="MDK529.EXE")
-        packListNode.innerHTML = ''
-        packList.forEach(v=>{
-          const li = window.document.createElement('li')
-          const a = window.document.createElement('a')
-          a.innerHTML=v.fileName
-          a.target = "__blank"
-          a.href = COMMON_URL+v.fileName
-          li.append(a)
-          packListNode.append(li)
+      try {
+        const downloadUrl = await this.$axios.get('/api/SyncConfig', {
+          params: {
+            name: this.data.name
+          }
         })
-      })
+        this.$nextTick(()=>{
+          const packListNode =  this.$refs.container.querySelector("#packs-list")
+          const packList = downloadUrl.data.data
+          packListNode.innerHTML = ''
+          packList.forEach(v=>{
+            const li = window.document.createElement('li')
+            const a = window.document.createElement('a')
+            a.innerHTML=v.fileName
+            a.target = "__blank"
+            a.href = COMMON_URL+v.fileName
+            li.append(a)
+            packListNode.append(li)
+          })
+        })
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
