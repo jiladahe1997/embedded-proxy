@@ -28,10 +28,6 @@ public class MainExecutor {
     @Value("${xxl.job.executor.logretentiondays}")
     private int logRetentionDays;
 
-
-    public String show()
-    {return "!~@1!@@!!@@!@!#!@#!@";}
-
     @Bean
     public XxlJobSpringExecutor xxlJobExecutor() {
         XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();

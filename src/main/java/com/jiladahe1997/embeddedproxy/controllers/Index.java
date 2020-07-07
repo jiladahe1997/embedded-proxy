@@ -41,6 +41,4 @@ public class Index {
         ConfigList configList =  new ObjectMapper().readerFor(ConfigList.class).readValue(acmService.getIndexCard());
         return new CommonReturn().success(configList);
     }
-
-
 }

@@ -16,8 +16,6 @@ public class AcmService {
     @Getter
     String KeilSyncData;
 
-    public  void hihi()
-    {System.out.println("你好你好你好你好");}
 
     public AcmService() throws ConfigException {
         Properties properties = new Properties();
