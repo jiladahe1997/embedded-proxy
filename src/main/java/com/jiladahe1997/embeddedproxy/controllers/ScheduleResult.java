@@ -94,7 +94,7 @@ public class ScheduleResult {
                     .limit(1)).get();
             ScheduleResultVO scheduleResultVO = new ScheduleResultVO();
             scheduleResultVO.setHandleName(lastJobLog.getExecutorHandler());
-            scheduleResultVO.setSuccess(lastJobLog.getTriggerCode() == 200);
+            scheduleResultVO.setSuccess(lastJobLog.getHandleCode() == 200);
             scheduleResultVO.setTriggerTime(lastJobLog.getHandleTime());
             ret.add(scheduleResultVO);
         });

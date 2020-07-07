@@ -10,6 +10,7 @@
       </div>
       <div class="help">
         <h3>公告</h3>
+        <Announcement />
         <h3>使用帮助</h3>
       </div>
     </div>
@@ -19,13 +20,14 @@
 <script>
 import Header from './components/Header.vue'
 import Card from './components/Card.vue'
-
+import Announcement from './components/Announcement.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Card
+    Card,
+    Announcement
   },
   data() {
     return {
