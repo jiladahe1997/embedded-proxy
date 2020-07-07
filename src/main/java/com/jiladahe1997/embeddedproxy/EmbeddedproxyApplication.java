@@ -17,6 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
 
+import javax.sql.rowset.spi.SyncResolver;
 import java.io.IOException;
 
 import java.text.DateFormat;
@@ -46,6 +47,7 @@ Object o= null;
 		System.out.println(o==null);
 		con.getBean(AcmService.class).hihi();
 		System.out.println(DateFormat.getDateInstance().getTimeZone());
+
 	//con.getBean(Aop.class).test();
 
 
