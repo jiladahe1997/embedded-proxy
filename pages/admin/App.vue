@@ -2,7 +2,7 @@
   <div>
     <h1>后台管理端</h1>
     <div class="container">
-      <el-menu class="menu" :router="true">
+      <el-menu class="menu" :router="true" ref="menu">
         <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -18,6 +18,23 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  mounted() {
+    this.manualSetMenuActive(window.location.pathname.replace("/admin",''))
+    this.$router.beforeEach((to, from, next) =>{
+        this.manualSetMenuActive(to.path)
+        next()
+    })
+  },
+  methods:{
+    manualSetMenuActive(path) {
+      this.$refs.menu.defaultActive = path
+    }
+  }
+}
+</script>
 
 <style lang="less" scoped>
 .menu {
