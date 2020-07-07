@@ -70,7 +70,7 @@ public class ScheduleResult {
         List<AdmAnceList> modif = new ArrayList<AdmAnceList>();
         res.stream().forEach(anceInfo->{ AdmAnceList listinfo = new AdmAnceList();
             listinfo.setId(anceInfo.getId());
-            listinfo.setTilte(anceInfo.getTitle());
+            listinfo.setTitle(anceInfo.getTitle());
             listinfo.setTime(anceInfo.getTime());
             modif.add(listinfo);});
         return new CommonReturn().success(modif);

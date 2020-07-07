@@ -8,7 +8,7 @@ import java.util.Date;
 @Data
 public class AdmAnceList {
 int id;
-String tilte;
+String title;
 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 Date time;
 }

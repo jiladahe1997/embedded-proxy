@@ -34,19 +34,7 @@ public class EmbeddedproxyApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext con=SpringApplication.run(EmbeddedproxyApplication.class, args);
-		//ScheduleResult x=new ScheduleResult();
-		XxlJobLogMapper x=con.getBean(XxlJobLogMapper.class);
-Object o= null;
-		//o=   con.getBean(com.jiladahe1997.embeddedproxy.models.Aop.class);
 
-		Optional<XxlJobLog>  a=x.selectOne(c->c
-				.where(XxlJobLogDynamicSqlSupport.id,SqlBuilder.isEqualTo((long)1)));
-
-		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		System.out.println(a.get().getHandleMsg());
-		System.out.println(o==null);
-		con.getBean(AcmService.class).hihi();
-		System.out.println(DateFormat.getDateInstance().getTimeZone());
 
 	//con.getBean(Aop.class).test();
 
