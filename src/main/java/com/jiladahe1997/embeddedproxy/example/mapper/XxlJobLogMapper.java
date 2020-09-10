@@ -34,31 +34,31 @@ import org.mybatis.dynamic.sql.util.mybatis3.MyBatis3Utils;
 
 @Mapper
 public interface XxlJobLogMapper {
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1901075+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     BasicColumn[] selectList = BasicColumn.columnList(id, jobGroup, jobId, executorAddress, executorHandler, executorParam, executorShardingParam, executorFailRetryCount, triggerTime, triggerCode, handleTime, handleCode, alarmStatus, triggerMsg, handleMsg);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1771067+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7836086+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @SelectProvider(type=SqlProviderAdapter.class, method="select")
     long count(SelectStatementProvider selectStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1781068+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7836086+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @DeleteProvider(type=SqlProviderAdapter.class, method="delete")
     int delete(DeleteStatementProvider deleteStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1791068+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7836086+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @InsertProvider(type=SqlProviderAdapter.class, method="insert")
     int insert(InsertStatementProvider<XxlJobLog> insertStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1801069+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7836086+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @InsertProvider(type=SqlProviderAdapter.class, method="insertMultiple")
     int insertMultiple(MultiRowInsertStatementProvider<XxlJobLog> multipleInsertStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.181107+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @SelectProvider(type=SqlProviderAdapter.class, method="select")
     @ResultMap("XxlJobLogResult")
     Optional<XxlJobLog> selectOne(SelectStatementProvider selectStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.182107+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @SelectProvider(type=SqlProviderAdapter.class, method="select")
     @Results(id="XxlJobLogResult", value = {
         @Result(column="id", property="id", jdbcType=JdbcType.BIGINT, id=true),
@@ -79,28 +79,28 @@ public interface XxlJobLogMapper {
     })
     List<XxlJobLog> selectMany(SelectStatementProvider selectStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1831071+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     @UpdateProvider(type=SqlProviderAdapter.class, method="update")
     int update(UpdateStatementProvider updateStatement);
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1841071+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default long count(CountDSLCompleter completer) {
         return MyBatis3Utils.countFrom(this::count, xxlJobLog, completer);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1851072+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int delete(DeleteDSLCompleter completer) {
         return MyBatis3Utils.deleteFrom(this::delete, xxlJobLog, completer);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1851072+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int deleteByPrimaryKey(Long id_) {
         return delete(c -> 
             c.where(id, isEqualTo(id_))
         );
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1861072+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7846077+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int insert(XxlJobLog record) {
         return MyBatis3Utils.insert(this::insert, record, xxlJobLog, c ->
             c.map(id).toProperty("id")
@@ -121,7 +121,7 @@ public interface XxlJobLogMapper {
         );
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1881074+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int insertMultiple(Collection<XxlJobLog> records) {
         return MyBatis3Utils.insertMultiple(this::insertMultiple, records, xxlJobLog, c ->
             c.map(id).toProperty("id")
@@ -142,7 +142,7 @@ public interface XxlJobLogMapper {
         );
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1891074+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int insertSelective(XxlJobLog record) {
         return MyBatis3Utils.insert(this::insert, record, xxlJobLog, c ->
             c.map(id).toPropertyWhenPresent("id", record::getId)
@@ -163,34 +163,34 @@ public interface XxlJobLogMapper {
         );
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1911075+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default Optional<XxlJobLog> selectOne(SelectDSLCompleter completer) {
         return MyBatis3Utils.selectOne(this::selectOne, selectList, xxlJobLog, completer);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1911075+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default List<XxlJobLog> select(SelectDSLCompleter completer) {
         return MyBatis3Utils.selectList(this::selectMany, selectList, xxlJobLog, completer);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1921076+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default List<XxlJobLog> selectDistinct(SelectDSLCompleter completer) {
         return MyBatis3Utils.selectDistinct(this::selectMany, selectList, xxlJobLog, completer);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1921076+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default Optional<XxlJobLog> selectByPrimaryKey(Long id_) {
         return selectOne(c ->
             c.where(id, isEqualTo(id_))
         );
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1921076+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int update(UpdateDSLCompleter completer) {
         return MyBatis3Utils.update(this::update, xxlJobLog, completer);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1931076+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7856072+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     static UpdateDSL<UpdateModel> updateAllColumns(XxlJobLog record, UpdateDSL<UpdateModel> dsl) {
         return dsl.set(id).equalTo(record::getId)
                 .set(jobGroup).equalTo(record::getJobGroup)
@@ -209,7 +209,7 @@ public interface XxlJobLogMapper {
                 .set(handleMsg).equalTo(record::getHandleMsg);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1931076+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7866064+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     static UpdateDSL<UpdateModel> updateSelectiveColumns(XxlJobLog record, UpdateDSL<UpdateModel> dsl) {
         return dsl.set(id).equalToWhenPresent(record::getId)
                 .set(jobGroup).equalToWhenPresent(record::getJobGroup)
@@ -228,7 +228,7 @@ public interface XxlJobLogMapper {
                 .set(handleMsg).equalToWhenPresent(record::getHandleMsg);
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1941077+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7866064+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int updateByPrimaryKey(XxlJobLog record) {
         return update(c ->
             c.set(jobGroup).equalTo(record::getJobGroup)
@@ -249,7 +249,7 @@ public interface XxlJobLogMapper {
         );
     }
 
-    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-04-16T22:40:57.1951078+08:00", comments="Source Table: xxl_job_log")
+    @Generated(value="org.mybatis.generator.api.MyBatisGenerator", date="2020-06-01T15:01:47.7866064+08:00", comments="Source Table: test_embeddedproxy..xxl_job_log")
     default int updateByPrimaryKeySelective(XxlJobLog record) {
         return update(c ->
             c.set(jobGroup).equalToWhenPresent(record::getJobGroup)

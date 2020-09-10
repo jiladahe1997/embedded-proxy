@@ -5,6 +5,7 @@ import ElementUI from 'element-ui';
 import router from './router'
 import VueRouter from 'vue-router';
 
+import "../public/favicon.ico"
 Vue.prototype.$axios = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI);

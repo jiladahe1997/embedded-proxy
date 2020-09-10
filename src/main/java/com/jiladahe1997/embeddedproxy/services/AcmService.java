@@ -20,6 +20,7 @@ public class AcmService {
     @Getter
     public String ARMSyncData;
 
+
     public AcmService() throws ConfigException {
         Properties properties = new Properties();
         properties.put("endpoint", "acm.aliyun.com");
