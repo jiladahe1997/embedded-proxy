@@ -4,7 +4,8 @@ const path = require('path')
 module.exports = {
   pages: {
     index: {
-      entry: './pages/index/main.js'
+      entry: './pages/index/main.js',
+      template: './pages/public/index.html',
     },
     admin:{
       entry: './pages/admin/main.js'
@@ -12,6 +13,7 @@ module.exports = {
   },
   lintOnSave: 'warning',
   devServer: {
+    contentBase: path.join(__dirname, 'dist'),
     proxy: {
       '/api': {
         target: config.Vue_Cli.backend,
@@ -35,6 +37,9 @@ module.exports = {
       rules: [{
           test: /\.md$/,
           loader: 'raw-loader'
+      },{
+        test: /\.ico/,
+        loader: "file-loader?name=[name].[ext]"
       }]
     }
   }
