@@ -16,9 +16,18 @@
           <br/>
           如有侵权请联系删除，联系方式：jiladahe1997@gmail.com
         </div>
-        <h3>公告</h3>
+        <hr style="FILTER:alpha(opacity=100,finishopacity=0,style=3);margin: 40px 0" width="80%" color=#CDCFD1 SIZE=3>
+        <h3 class="announcement">公告</h3>
         <Announcement />
-        <h3>使用帮助</h3>
+        <hr style="FILTER:alpha(opacity=100,finishopacity=0,style=3);margin: 40px 0" width="80%" color=#CDCFD1 SIZE=3>
+        <h3>赞助</h3> 
+        <div>
+          开发和维护本站耗费了我不少的休息时间，如果你觉得本站对你有所帮助，请赞助我喝杯瑞幸咖啡（非广告
+          <br>
+          <div style="text-align:center">
+            <img src="../public/appreciate_QR_code.png" alt="" width="200">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -74,8 +83,12 @@ export default {
   > div{
     font-size: 15px;
   }
+  .announcement{
+  }
   display: inline-block;
   width: 29%;
   vertical-align: top;
+  padding: 50px 0 0 10px;
+  box-sizing: border-box;
 }
 </style>

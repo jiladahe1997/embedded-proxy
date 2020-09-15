@@ -25,17 +25,7 @@ export default {
   },
   data() {
     return {
-      announcement: [{
-        id:1,
-        title: "测试公告1",
-        time: dayjs(1592923104000).format("YYYY-MM-DD"),
-        content: ''
-      },{
-        id:2,
-        title: "测试公告2",
-        time: dayjs(1592836704000).format("YYYY-MM-DD"),
-        content: ''
-      }]
+      announcement: []
     }
   },
   async created() {
@@ -49,18 +39,17 @@ export default {
       const res = await this.$axios.post('/api/user/AncemtDetl', {
         id
       })
-      this.announcement.find(v=>v.id===id).content = res.data.data
+      this.$set(this.announcement.find(v=>v.id===id),'content',res.data.data.content);
     }
   }
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .container {
   .title {
-    font-size: 16px;
-    color: #333;
-    font-weight: 700;
+    font-size: 14px;
+    color: #315EFB;
     cursor: pointer;
   }
   .time {
