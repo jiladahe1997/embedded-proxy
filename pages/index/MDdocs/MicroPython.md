@@ -1,4 +1,4 @@
-### MicroPython简介
+# MicroPython
 
 MicroPython是Python 3编程语言的一种精简而高效的实现， 其中包括Python标准库的一小部分，并且经过优化可在微控制器和受限环境中运行。
 
@@ -10,7 +10,8 @@ MicroPython的目标是与普通Python尽可能兼容，从而使您可以轻松
 
 官网：http://micropython.org/
 
-### 相关软件下载
+## 下载：
+#### - 官方源地址：
 
 MicroPython官方固件地址：http://www.micropython.org/download/
 
@@ -31,7 +32,7 @@ MicroPython github仓库地址：https://github.com/micropython/micropython
 - btstack : https://github.com/bluekitchen/btstack.git
 - nxp_driver : https://github.com/hathach/nxp_driver.git
 
-### 镜像地址：TODO
+#### - 本站加速加速地址：
 
 <ul id="packs-list">
 
