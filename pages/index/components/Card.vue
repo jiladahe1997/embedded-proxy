@@ -5,8 +5,8 @@
         <img :src="data.img" alt="">
       </div>
       <div class="briefContainer">
-        <p class="title">{{data.name}}</p>
-        <p class="brief">{{data.description}}</p>
+        <div class="title">{{data.name}}</div>
+        <div class="brief">{{data.description}}</div>
       </div>
       <div class="syncResult">
         <p>
@@ -19,12 +19,11 @@
       </div>
     </div>
     <Dialog
-      title="使用方法"
+      title="简介"
       :visible.sync="dialogVisible"
       @open="openHandle"
     >
       <template slot="default">
-        <h2>{{`${data.name}镜像库使用方法介绍`}}</h2>
         <div v-html="instructions || '暂无使用方法，待补充'"></div>
       </template>
     </Dialog>
@@ -154,9 +153,11 @@ export default {
   vertical-align: middle;
   .title {
     font-size: 24px;
+    font-weight: 700;
   }
   .brief {
     font-size: 12px;
+    height: 33px;
   }
 }
 .syncResult {
